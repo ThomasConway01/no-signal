@@ -1,0 +1,10 @@
+<!-- Written by Thomas Conway. NO SIGNAL favicon: a mast with the signal crossed out. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#140c06"/>
+  <g fill="#ffbf3c">
+    <rect x="7" y="18" width="3" height="6" rx="0.5"/>
+    <rect x="13" y="13" width="3" height="11" rx="0.5"/>
+    <rect x="19" y="8" width="3" height="16" rx="0.5"/>
+  </g>
+  <path d="M6 26 L25 7" stroke="#ff5a36" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

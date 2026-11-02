@@ -1,0 +1,33 @@
+{
+  "name": "no-signal",
+  "private": true,
+  "version": "1.0.0",
+  "description": "An on-device bunker assistant that is happier offline. Thomas Conway's entry for Hackyard Yard #6.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "icons": "python3 scripts/make-icons.py"
+  },
+  "dependencies": {
+    "@fontsource/share-tech-mono": "^5.3.0",
+    "@fontsource/vt323": "^5.3.0",
+    "@mlc-ai/web-llm": "0.2.87"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "typescript": "^5.6.3",
+    "vite": "^6.4.1",
+    "vite-plugin-pwa": "^2.0.0",
+    "workbox-core": "^7.4.1",
+    "workbox-precaching": "^7.4.1",
+    "workbox-routing": "^7.4.1",
+    "workbox-strategies": "^7.4.1"
+  }
+}
