@@ -9,7 +9,8 @@ import { quietParts } from '../src/app/time';
 import { scriptedRespond } from '../src/app/persona';
 import { DEMO_NOTE_BODY } from '../src/app/seed';
 
-const APP = '/no-signal/?persona=script';
+const BASE = process.env.VITE_BASE || '/';
+const APP = `${BASE}?persona=script`;
 
 test('sulks while the radio is up', async ({ page }) => {
   await page.goto(APP);
@@ -20,17 +21,17 @@ test('sulks while the radio is up', async ({ page }) => {
   await expect(page.getByTestId('stock-detail')).toContainText(/scripted persona/i);
   await expect(page.locator('#bunker-view')).toBeHidden();
 
-  const manifest = await page.request.get('/no-signal/manifest.webmanifest');
+  const manifest = await page.request.get(`${BASE}manifest.webmanifest`);
   expect(manifest.ok()).toBeTruthy();
   const body = await manifest.json();
   expect(body.name).toBe('NO SIGNAL');
-  expect(body.start_url).toContain('/no-signal/');
+  expect(body.start_url).toContain(BASE);
 
-  const worker = await page.request.get('/no-signal/sw.js');
+  const worker = await page.request.get(`${BASE}sw.js`);
   expect(worker.ok()).toBeTruthy();
   const source = await worker.text();
   expect(source).toContain('webllm/model');
-  expect(source).toContain('"/no-signal/"');
+  expect(source).toContain(`"${BASE}"`);
   expect(source).toContain('index.html');
 });
 
@@ -119,7 +120,7 @@ test('counts days since the last confirmed signal', async ({ page, context }) =>
 });
 
 test('boots without forcing the scripted persona', async ({ page }) => {
-  await page.goto('/no-signal/');
+  await page.goto(BASE);
   await expect(page.locator('[data-testid="screen"]')).toHaveAttribute('data-probed', 'yes');
   await expect(page.locator('[data-testid="screen"]')).toHaveAttribute('data-link', 'online');
   await expect(page.getByRole('heading', { name: 'SIGNAL DETECTED' })).toBeVisible();
