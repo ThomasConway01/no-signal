@@ -12,7 +12,7 @@ The stills above are the real UI. The badge in the second figure is four days be
 
 ## Try it
 
-Live demo: [no-signal-5p9.pages.dev](https://no-signal-5p9.pages.dev/), hosted on Cloudflare Pages.
+Live demo: [no-signal.thethomas.tech](https://no-signal.thethomas.tech/), hosted on Cloudflare Pages. Mirror: [no-signal-5p9.pages.dev](https://no-signal-5p9.pages.dev/).
 
 1. Open it **once while you still have signal**. The service worker caches the app shell on that visit. If the browser has WebGPU, the sulk screen starts stocking a local model (about 265MB). That haul is the download. After it lands, the weights stay in the Cache API.
 2. Turn on **airplane mode**, or in DevTools set the Network panel to **Offline**. Pull the cable if you are feeling theatrical.
