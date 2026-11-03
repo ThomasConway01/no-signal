@@ -6,3 +6,5 @@ playwright-report
 blob-report
 playwright/.cache
 *.log
+# Untrimmed takes from scripts/record-demo.mjs
+demo/raw
