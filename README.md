@@ -12,7 +12,7 @@ The stills above are the real UI. The badge in the second figure is four days be
 
 ## Try it
 
-Live site, once this is on `main`: [thomasconway01.github.io/no-signal](https://thomasconway01.github.io/no-signal/).
+Live demo: [no-signal.thethomas.tech](https://no-signal.thethomas.tech/), hosted on Cloudflare Pages. Mirror: [no-signal-5p9.pages.dev](https://no-signal-5p9.pages.dev/).
 
 1. Open it **once while you still have signal**. The service worker caches the app shell on that visit. If the browser has WebGPU, the sulk screen starts stocking a local model (about 265MB). That haul is the download. After it lands, the weights stay in the Cache API.
 2. Turn on **airplane mode**, or in DevTools set the Network panel to **Offline**. Pull the cable if you are feeling theatrical.
@@ -29,7 +29,7 @@ npm run build
 npm run preview
 ```
 
-Then open `http://127.0.0.1:4173/no-signal/`. `npm run dev` is the fast loop, at `http://127.0.0.1:5173/no-signal/`, without the offline shell.
+Then open `http://127.0.0.1:4173/`. `npm run dev` is the fast loop, at `http://127.0.0.1:5173/`, without the offline shell.
 
 ## Stack
 
@@ -54,9 +54,11 @@ The weights are not in the git repo. GitHub's file cap and a 265MB clone would p
 
 `npm test` builds the site and runs this in headless Chromium: the sulk screen, the offline reload, ration and note persistence, the badge download, a zero-foreign-request check, and the scripted persona.
 
-## Pages
+## Hosting
 
-`.github/workflows/pages.yml` builds with `npm ci && npm run build` and deploys `dist/` to GitHub Pages on every push to `main`. The Vite `base` is `/no-signal/`, which matches the project site. Pages is already set to GitHub Actions as the source. The workflow is ready; it runs when this lands on `main`.
+The live demo is on Cloudflare Pages: `npm run build`, then `npx wrangler pages deploy dist --project-name no-signal --branch main`. The build serves from the site root (`/`).
+
+The base path is configurable. `src/base.ts` reads Vite's `import.meta.env.BASE_URL`, and `vite.config.ts` takes it from `VITE_BASE` (default `/`). To serve from a sub-path, build with `VITE_BASE=/no-signal/ npm run build`. `.github/workflows/pages.yml` does this for a GitHub Pages project site and deploys `dist/` on every push to `main`. Tests follow the same variable.
 
 ## Licence
 

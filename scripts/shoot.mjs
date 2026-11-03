@@ -6,7 +6,7 @@ import { chromium } from '@playwright/test';
 import { spawn } from 'node:child_process';
 import { mkdir, unlink } from 'node:fs/promises';
 
-const base = 'http://127.0.0.1:4173/no-signal/?persona=script';
+const base = `http://127.0.0.1:4173${process.env.VITE_BASE || '/'}?persona=script`;
 const out = new URL('../docs/', import.meta.url);
 
 await mkdir(out, { recursive: true });

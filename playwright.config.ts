@@ -6,6 +6,8 @@
 
 import { defineConfig } from '@playwright/test';
 
+const BASE = process.env.VITE_BASE || '/';
+
 export default defineConfig({
   testDir: 'tests',
   timeout: 60_000,
@@ -18,7 +20,7 @@ export default defineConfig({
   },
   webServer: {
     command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
-    url: 'http://127.0.0.1:4173/no-signal/',
+    url: `http://127.0.0.1:4173${BASE}`,
     reuseExistingServer: false,
     timeout: 180_000,
   },

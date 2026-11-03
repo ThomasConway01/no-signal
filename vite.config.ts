@@ -6,7 +6,11 @@
 
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import { APP_BASE } from './src/base';
+
+// Vite's config runs in Node, so the base comes from VITE_BASE here. The app and
+// the service worker then read the same value back as import.meta.env.BASE_URL.
+const rawBase = process.env.VITE_BASE || '/';
+const APP_BASE = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 
 export default defineConfig({
   base: APP_BASE,
