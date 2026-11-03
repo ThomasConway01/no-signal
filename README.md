@@ -10,6 +10,10 @@ Thomas Conway's solo entry for [Hackyard Yard #6 — Offline](https://hackyard.t
 
 The stills above are the real UI. The badge in the second figure is four days because that machine's last confirmed signal was four days earlier. A first visit that goes offline immediately reads `00`.
 
+## Demo video
+
+Sixty seconds, recorded headless against the live site with the browser network set to Offline: [demo/no-signal-demo.mp4](demo/no-signal-demo.mp4), also hosted at [no-signal.thethomas.tech/no-signal-demo.mp4](https://no-signal.thethomas.tech/no-signal-demo.mp4). The sulk, the cut, a fetch to example.com that fails on screen, then Summarise, Roast, Rewrite, a ration, a hard reload, and the badge. The recorder had no GPU, so the scripted persona answers in the video. A machine with WebGPU runs Qwen2.5 0.5B on-device.
+
 ## Try it
 
 Live demo: [no-signal.thethomas.tech](https://no-signal.thethomas.tech/), hosted on Cloudflare Pages. Mirror: [no-signal-5p9.pages.dev](https://no-signal-5p9.pages.dev/).
